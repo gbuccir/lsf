@@ -8,6 +8,6 @@ angular.module('login', [])
 
         controller: ['$scope', function login($scope) {
 
-            alert("login");
+            console.log("login")
         }],
     })
