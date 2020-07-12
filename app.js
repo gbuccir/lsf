@@ -1,14 +1,10 @@
-var app = angular.module('app', ["ngRoute","login"]);
-app.controller('appController', function ($scope) {
-    $scope.isLogado = false;
-    $scope.nome = "vamo ai!!!"
-
-    
+var app = angular.module('app', ["ngRoute", "login", "aplicacao", "usuarioService"]);
+app.controller('appController', function ($scope,$rootScope) {
 })
-.config(['$routeProvider',
+  .config(['$routeProvider',
     function config($routeProvider) {
       $routeProvider
-      .when('/', {
+        .when('/', {
           templateUrl: './src/view/home.html'
         })
         .when('/seila', {

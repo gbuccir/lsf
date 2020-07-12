@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-lg-12">
+            <h1 class="cWhite">Lista de Projetos</h1>
+        </div>
+    </div>
+    <br />
+    <br />
+    <div class="col-lg-12">
+        <div class="container">
+            <div class="container">
+                <section>
+                    <button type="button" class="btn" ng-click="$ctrl.abrirModalProjeto()">Criar novo projeto</button>
+                    <br>
+                    <button type="button" class="btn" ng-click="$ctrl.filtrarPorStatus($root.StatusProjetoEnum.Concluido)" >Concluídos</button>
+                    <button type="button" class="btn" ng-click="$ctrl.filtrarPorStatus($root.StatusProjetoEnum.NaoConcluido)">Não concluídos</button>
+                    <div ng-repeat="projeto in $ctrl.projetos">
+                        <h5 class="cWhite"><strong>Nome</strong> {{projeto.nome}}</h5>
+                        <p class="cWhite"><strong>Data de criação:</strong> {{projeto.datacriacao}}</p>
+                        <p class="cWhite"><strong>Concluido:</strong> {{projeto.concluido}}</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
