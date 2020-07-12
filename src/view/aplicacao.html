@@ -9,15 +9,16 @@
     <div class="col-lg-12">
         <div class="container">
             <div class="container">
-                <section>
-                    <button type="button" class="btn" ng-click="$ctrl.abrirModalProjeto()">Criar novo projeto</button>
+                <section >
+                    <button type="button" class="btn" ng-if="$ctrl.userPerfil == $root.TipoUsuarioEnum.Projetista" ng-click="$ctrl.abrirModalProjeto()">Criar novo projeto</button>
                     <br>
                     <button type="button" class="btn" ng-click="$ctrl.filtrarPorStatus($root.StatusProjetoEnum.Concluido)" >Concluídos</button>
                     <button type="button" class="btn" ng-click="$ctrl.filtrarPorStatus($root.StatusProjetoEnum.NaoConcluido)">Não concluídos</button>
-                    <div ng-repeat="projeto in $ctrl.projetos">
+                    <div class="blocoProjeto justify-content-center align-items-center" ng-repeat="projeto in $ctrl.projetos">
                         <h5 class="cWhite"><strong>Nome</strong> {{projeto.nome}}</h5>
                         <p class="cWhite"><strong>Data de criação:</strong> {{projeto.datacriacao}}</p>
                         <p class="cWhite"><strong>Concluido:</strong> {{projeto.concluido}}</p>
+                        <button type="button" ng-click="$ctrl.abrirProjeto(projeto)" class="btn" >{{$ctrl.btnText}}</button>
                     </div>
                 </section>
             </div>

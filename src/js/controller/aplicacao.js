@@ -8,6 +8,7 @@ angular.module('aplicacao', [])
         controller: ['$scope', '$rootScope', 'usuarioService', function aplicacao($scope, $rootScope, usuarioService) {
             var $ctrl = this;
             $ctrl.projetosAux = [];
+            $ctrl.userPerfil = usuarioService.getUser().perfil
             $ctrl.projetos = [
                 {
                     nome: "nome do peojeto",
@@ -33,10 +34,18 @@ angular.module('aplicacao', [])
 
             function init() {
                 angular.copy($ctrl.projetos, $ctrl.projetosAux)
-                if (usuarioService.getUser().perfil == $rootScope.TipoUsuarioEnum.Projetista)
+                if ($ctrl.userPerfil == $rootScope.TipoUsuarioEnum.Projetista){
                     $ctrl.filtrarPorStatus($rootScope.StatusProjetoEnum.Concluido)
-                else
+                   $ctrl.btnText= "Editar";
+                }
+                else{
                     $ctrl.filtrarPorStatus($rootScope.StatusProjetoEnum.NaoConcluido)
+                    $ctrl.btnText= "Visualizar";
+                }
+            }
+
+            $ctrl.abrirProjeto = function(projeto){
+                console.log(projeto)
             }
 
             init();
