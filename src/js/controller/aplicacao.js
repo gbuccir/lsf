@@ -33,6 +33,7 @@ angular.module('aplicacao', [])
             }
 
             function init() {
+                $ctrl.modalAberta = false
                 angular.copy($ctrl.projetos, $ctrl.projetosAux)
                 if ($ctrl.userPerfil == $rootScope.TipoUsuarioEnum.Projetista){
                     $ctrl.filtrarPorStatus($rootScope.StatusProjetoEnum.Concluido)
@@ -46,6 +47,7 @@ angular.module('aplicacao', [])
 
             $ctrl.abrirProjeto = function(projeto){
                 console.log(projeto)
+                $ctrl.modalAberta = true
             }
 
             init();
