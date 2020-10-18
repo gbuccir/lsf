@@ -10,7 +10,7 @@
         <div class="container">
             <div class="container">
                 <section >
-                    <button type="button" class="btn" ng-if="$ctrl.userPerfil == $root.TipoUsuarioEnum.Projetista" ng-click="$ctrl.abrirModalProjeto()">Criar novo projeto</button>
+                    <button type="button" class="btn" ng-if="$ctrl.userPerfil == $root.TipoUsuarioEnum.Projetista" ng-click="$ctrl.abrirProjeto()">Criar novo projeto</button>
                     <br>
                     <button type="button" class="btn" ng-click="$ctrl.filtrarPorStatus($root.StatusProjetoEnum.Concluido)" >Concluídos</button>
                     <button type="button" class="btn" ng-click="$ctrl.filtrarPorStatus($root.StatusProjetoEnum.NaoConcluido)">Não concluídos</button>
@@ -26,4 +26,4 @@
     </div>
 </div>
 
-<modal-projeto ng-if="$ctrl.modalAberta"></modal-projeto>
+<modal-projeto ng-if="$ctrl.modalAberta" proj="$ctrl.proj" close="$ctrl.close()"></modal-projeto>

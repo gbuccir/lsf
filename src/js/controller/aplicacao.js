@@ -48,6 +48,13 @@ angular.module('aplicacao', [])
             $ctrl.abrirProjeto = function(projeto){
                 console.log(projeto)
                 $ctrl.modalAberta = true
+                $ctrl.proj = projeto
+            }
+
+            $ctrl.close = function (){
+                $('#modalProjeto').modal("hide")
+                $ctrl.modalAberta = false
+                $(".modal-backdrop.fade.in").remove();
             }
 
             init();
